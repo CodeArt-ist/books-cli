@@ -1,6 +1,8 @@
 {
-  "selam": "lala",
-  "welcome": {
-    "title": "Hoşgeldiniz."
+  "login": {
+    "headerTitle": "Giriş Yap",
+    "email": "E-Posta",
+    "password": "Parola",
+    "signIn": "Giriş Yap"
   }
 }

@@ -1,6 +1,8 @@
 {
-    "selam": "dipsy",
-    "welcome": {
-        "title": "Welcome."
+    "login": {
+        "headerTitle": "Sign In",
+        "email": "Email",
+        "password": "Password",
+        "signIn": "Sign In"
     }
 }
