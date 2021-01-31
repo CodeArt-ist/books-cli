@@ -2,5 +2,14 @@
     "selam": "dipsy",
     "welcome": {
         "title": "Welcome."
-    }
+    },
+    "dashboard":{
+        "homepage":"Timeline",
+        "search":"Search",
+        "new":"New Add",
+        "reviews":"My Reviews",
+        "profile":"Profile"
+      },
+      "login":"Sign in",
+      "register":"Sign up"
 }

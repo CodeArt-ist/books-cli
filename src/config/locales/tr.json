@@ -2,5 +2,14 @@
   "selam": "lala",
   "welcome": {
     "title": "Hoşgeldiniz."
-  }
+  },
+  "dashboard":{
+    "homepage":"Anasayfa",
+    "search":"Arama",
+    "new":"Yeni Ekle",
+    "reviews":"İncelemelerim",
+    "profile":"Profil"
+  },
+  "login":"Giriş Yap",
+  "register":"Kayıt Ol"
 }
