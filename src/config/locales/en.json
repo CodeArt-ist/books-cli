@@ -1,8 +1,18 @@
 {
     "login": {
-        "headerTitle": "Sign In",
+        "headerTitle": "Login",
         "email": "Email",
         "password": "Password",
-        "signIn": "Sign In"
-    }
+        "signIn": "Login"
+    },
+    "register": {
+        "headerTitle": "Register"
+    },
+    "dashboard":{
+        "homepage":"Timeline",
+        "search":"Search",
+        "new":"New Add",
+        "reviews":"My Reviews",
+        "profile":"Profile"
+      }
 }

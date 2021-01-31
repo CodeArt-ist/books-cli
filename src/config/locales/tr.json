@@ -4,5 +4,15 @@
     "email": "E-Posta",
     "password": "Parola",
     "signIn": "Giriş Yap"
+  },
+  "register": {
+    "headerTitle": "Kayıt Ol"
+  },
+  "dashboard":{
+    "homepage":"Anasayfa",
+    "search":"Arama",
+    "new":"Yeni Ekle",
+    "reviews":"İncelemelerim",
+    "profile":"Profil"
   }
 }

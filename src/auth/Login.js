@@ -47,7 +47,7 @@ const Login = () => {
                     <View style={{width: "100%"}}>
                         <Input onChange={e => setEmail(e)} valid={false} label={t('login.email')}
                                placeholder={"example@mail.com"}/>
-                        <Input onChange={e => setPassword(e)} valid={true} label={t('login.password')}
+                        <Input type={"password"} onChange={e => setPassword(e)} valid={true} label={t('login.password')}
                                placeholder={"******"}/>
                     </View>
 
