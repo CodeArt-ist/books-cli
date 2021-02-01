@@ -44,6 +44,8 @@ export default function App() {
 
 function MainTabNavigator() {
 
+    const {t} = i18n;
+
     return (
         <Tab.Navigator
             tabBarOptions={{
@@ -60,25 +62,25 @@ function MainTabNavigator() {
                                 <Ionicons name={'ios-home'} color={color} size={size}/>
                             ),
                         }}/>
-            <Tab.Screen name={i18n.t('dashboard.search')} component={Search}
+            <Tab.Screen name={t('dashboard.search')} component={Search}
                         options={{
                             tabBarIcon: ({color, size}) => (
                                 <Ionicons name={'search-outline'} color={color} size={size}/>
                             ),
                         }}/>
-            <Tab.Screen name={i18n.t('dashboard.new')} component={NewReview}
+            <Tab.Screen name={t('dashboard.new')} component={NewReview}
                         options={{
                             tabBarIcon: ({color, size}) => (
                                 <Ionicons name={'add-outline'} color={color} size={size}/>
                             ),
                         }}/>
-            <Tab.Screen name={i18n.t('dashboard.reviews')} component={ReviewList}
+            <Tab.Screen name={t('dashboard.reviews')} component={ReviewList}
                         options={{
                             tabBarIcon: ({color, size}) => (
                                 <Ionicons name={'bulb-outline'} color={color} size={size}/>
                             ),
                         }}/>
-            <Tab.Screen name={i18n.t('dashboard.profile')} component={Profile}
+            <Tab.Screen name={t('dashboard.profile')} component={Profile}
                         options={{
                             tabBarIcon: ({color, size}) => (
                                 <Ionicons name={'person-outline'} color={color} size={size}/>
