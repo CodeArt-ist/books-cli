@@ -4,7 +4,7 @@ import Layout from '../../components/Layout/Layout';
 
 const NewReview = () => {
     return (
-        <Layout title={"Süleyman"} back>
+        <Layout back>
             <Text>Yeni İnceleme Ekleme Sayfası</Text>
         </Layout>
     )

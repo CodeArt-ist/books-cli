@@ -4,7 +4,7 @@ import Layout from '../../components/Layout/Layout';
 
 const Home = () => {
     return (
-        <Layout title={"Süleyman"} back>
+        <Layout back>
             <Text>Ana Sayfası</Text>
         </Layout>
     )

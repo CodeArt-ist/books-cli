@@ -4,7 +4,7 @@ import Layout from '../../components/Layout/Layout';
 
 const ReviewList = () => {
     return (
-        <Layout title={"Süleyman"} back>
+        <Layout back>
             <Text>İncelemelerim Sayfası</Text>
         </Layout>
     )
