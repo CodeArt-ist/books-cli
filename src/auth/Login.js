@@ -4,18 +4,20 @@ import styles from './Login.css'
 import i18n from '../config/i18n';
 import Input from "../../components/Form/Input/Input";
 import Button from "../../components/Form/Button/Button";
+import dismissKeyboard from "react-native-web/dist/modules/dismissKeyboard";
 
 
-const Login = () => {
+const Login = ({navigation}) => {
 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const [loading, setLoading] = useState(false)
 
     const {t} = i18n;
 
     const login = () => {
-        console.log({credentials: {password,email}})
-        return fetch('http://192.168.1.100:3000/auth/login',{
+        setLoading(true)
+        return fetch('http://192.168.1.46:3000/auth/login', {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
@@ -29,9 +31,14 @@ const Login = () => {
             .then(response => response.json())
             .then(responseJson => {
                 console.log(responseJson);
+                if (responseJson.accessToken) {
+                    navigation.navigate("HomePage");
+                }
+                setLoading(false)
             })
             .catch(error => {
-                console.error(error);
+                setLoading(false)
+                alert(JSON.stringify(error.status))
             });
     }
 
@@ -52,7 +59,7 @@ const Login = () => {
                     </View>
 
                     <View style={{width: 100, display: "flex", alignItems: "center", justifyContent: "center"}}>
-                        <Button title={t('login.signIn')} onPress={() => login()}/>
+                        <Button loading={loading} title={t('login.signIn')} onPress={() => login()}/>
                     </View>
                 </View>
             </View>
