@@ -30,7 +30,6 @@ export default function App() {
         return 'HomePage'
     }
 
-
     return (
         <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName={initialRoute()}>
