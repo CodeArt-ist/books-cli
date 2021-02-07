@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
         width: "85%",
     },
 
-    signInBtnContainer : {
+    signInBtnContainer: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -48,8 +48,18 @@ const styles = StyleSheet.create({
 
     },
 
+    buttonCover: {
+        width: 100,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+    },
+
     signInBtnText: {
         textAlign: "center",
+    },
+    w100: {
+        width: "100%"
     }
 });
 
