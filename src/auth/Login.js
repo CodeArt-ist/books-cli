@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, ImageBackground} from 'react-native';
+import {View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import styles from './Login.css'
 import i18n from '../config/language/i18n';
 import Input from "../../components/Form/Input/Input";
@@ -9,7 +9,7 @@ import Alert from "../../components/Alert/Alert";
 import {useDispatch, useSelector} from "react-redux";
 import {loginAsync} from "../store/reducers/authReducer";
 
-const Login = () => {
+const Login = ({navigation}) => {
 
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
@@ -23,7 +23,7 @@ const Login = () => {
 
     const loginFunc = async () => {
         await setLoading(true)
-        dispatch(await loginAsync(email,password))
+        dispatch(await loginAsync(email, password))
         await setErrors(state.errors)
         await setLoading(false)
     }
@@ -58,6 +58,14 @@ const Login = () => {
 
                     <View style={styles.buttonCover}>
                         <Button loading={loading} title={t('login.signIn')} onPress={() => loginFunc()}/>
+                        <View style={styles.registerTextWrapper}>
+                            <Text style={styles.registerText}>New here ? </Text>
+                            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+                                <Text style={{...styles["registerText"], ...styles.underlineText}}>
+                                    Create an account
+                                </Text>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
             </View>

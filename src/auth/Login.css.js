@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     },
 
     buttonCover: {
-        width: 100,
+        width: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
@@ -58,9 +58,29 @@ const styles = StyleSheet.create({
     signInBtnText: {
         textAlign: "center",
     },
+
     w100: {
         width: "100%"
+    },
+
+    registerTextWrapper: {
+        display: "flex",
+        flexDirection: "row",
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 10
+    },
+
+    registerText: {
+        fontSize: 17,
+        fontWeight: "bold"
+    },
+
+    underlineText: {
+        textDecorationLine: "underline"
     }
+
 });
 
 export default styles;
