@@ -50,9 +50,10 @@ const Login = ({navigation}) => {
                     </View>
 
                     <View style={styles.w100}>
-                        <Input onChange={e => setEmail(e)} valid={false} label={t('login.email')}
-                               placeholder={"example@mail.com"}/>
-                        <Input type={"password"} onChange={e => setPassword(e)} valid={true} label={t('login.password')}
+                        <Input onChange={e => setEmail(e)} label={t('login.email')}
+                               placeholder={"example@mail.com"} options={/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/}/>
+                        <Input type={"password"} onChange={e => setPassword(e)} label={t('login.password')}
+                               options={'bigger_than:5,length'}
                                placeholder={"******"}/>
                     </View>
 

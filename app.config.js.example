@@ -1,0 +1,13 @@
+export default {
+    name: 'BooksApp',
+    version: process.env.MY_CUSTOM_PROJECT_VERSION || '1.0.0',
+    extra: {
+        APP_TYPE: 'DEVELOPMENT',
+        DEVELOPMENT: {
+            API_URL: 'http://your-development-url.com',
+        },
+        PRODUCTION: {
+            API_URL: 'http://your-production-url.com'
+        }
+    },
+};
