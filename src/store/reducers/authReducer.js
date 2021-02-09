@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {Post} from "../../config/services/api/Api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Constants from "expo-constants/src/Constants";
+import {APP} from "../../../app.config";
 
 const authSlice = createSlice({
     name: "authReducer",
@@ -36,7 +36,7 @@ export const {login, register, logout, setToken} = authSlice.actions;
 export default authSlice.reducer;
 
 export const loginAsync = (email, password) => async dispatch => {
-    await Post(Constants.manifest.extra[Constants.manifest.extra.APP_TYPE].API_URL+'/auth/login', {email, password}, async (response, error) => {
+    await Post(APP.API_URL+'/auth/login', {email, password}, async (response, error) => {
         if (response) {
             if (response.accessToken) {
                 dispatch(login({userToken: response.accessToken}))
