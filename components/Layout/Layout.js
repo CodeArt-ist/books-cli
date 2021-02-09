@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, SafeAreaView, StyleSheet} from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient'
 import styles from './layout.css'
@@ -6,6 +6,8 @@ import Input from "../Form/Input/Input";
 import {Ionicons} from "@expo/vector-icons";
 
 const Layout = ({children, title, back, search}) => {
+
+    const [searchText, setSearchText] = useState()
 
     return (
         <SafeAreaView style={styles.layout}>
@@ -23,6 +25,8 @@ const Layout = ({children, title, back, search}) => {
             </View>
 
             {search && <Input style={styles.search}
+                              onChange={e => setSearchText(e)}
+                              value={searchText}
                               placeholder={"Search Book"}/>}
 
             <View style={styles.content}>

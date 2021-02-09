@@ -22,9 +22,9 @@ const Input = ({placeholder, label, onChange, type, value, style= {},options}) =
             if  (typeof fn === 'function') {
                 parameter = fn(e)
             }else {
-                if (!parameter) {
+                try {
                     parameter = e[process]
-                } else {
+                } catch (error) {
                     parameter = e;
                 }
             }
