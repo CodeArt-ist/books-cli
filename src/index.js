@@ -27,10 +27,9 @@ const Index = () => {
 
     useEffect(() => {
         const boostrapAsync = async () => {
-            let userToken;
-            userToken = await AsyncStorage.removeItem('token')
+            let userToken = await AsyncStorage.getItem('token')
 
-            dispatch(await setTokenAsync(userToken));
+            await dispatch(await setTokenAsync(userToken));
         }
 
         boostrapAsync()

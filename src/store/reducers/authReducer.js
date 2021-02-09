@@ -36,13 +36,18 @@ export const {login, register, logout, setToken} = authSlice.actions;
 export default authSlice.reducer;
 
 export const loginAsync = (email, password) => async dispatch => {
-    await Post(APP.API_URL+'/auth/login', {email, password}, async (response, error) => {
+    await Post(APP.API_URL + '/auth/login', {email, password}, async (response, error) => {
         if (response) {
             if (response.accessToken) {
-                dispatch(login({userToken: response.accessToken}))
-                await AsyncStorage.setItem('token', response.accessToken)
+                await dispatch(login({userToken: response.accessToken}))
+                try {
+                    await AsyncStorage.setItem('token', response.accessToken)
+                } catch (error) {
+                    console.log("Error", error)
+                }
             }
             if (response.error) {
+                console.log("error",response.error)
                 dispatch(login(response))
             }
         } else if (error) {
