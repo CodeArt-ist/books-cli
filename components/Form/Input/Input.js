@@ -3,7 +3,7 @@ import {View, TextInput, Text} from "react-native";
 import styles from './input.css'
 import {validColor, invalidColor} from "../../../src/config/language/colors";
 
-const Input = ({placeholder, label, onChange, type, value, options}) => {
+const Input = ({placeholder, label, onChange, type, value, style= {},options}) => {
 
     const [valid, setValid] = useState(false)
 
@@ -44,13 +44,13 @@ const Input = ({placeholder, label, onChange, type, value, options}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.label}>{label}</Text>
+            {label && <Text style={styles.label}>{label}</Text>}
             <TextInput secureTextEntry={type === "password" ?? false}
                        passwordRules={valid}
                        onChangeText={e => onInputChange(e)}
                        placeholder={placeholder}
                        value={value}
-                       style={{...styles.input, borderBottomColor: valid ? validColor : invalidColor}}/>
+                       style={{...styles.input, borderBottomColor: valid ? validColor : invalidColor, ...style }}/>
         </View>
     )
 }
