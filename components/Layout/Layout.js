@@ -22,7 +22,7 @@ const Layout = ({children, title, back, search}) => {
                 </LinearGradient>
             </View>
 
-            {search && <Input style={{marginTop: -30, width: "90%", padding: 0, alignSelf: "center"}}
+            {search && <Input style={styles.search}
                               placeholder={"Search Book"}/>}
 
             <View style={styles.content}>

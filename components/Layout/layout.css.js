@@ -1,4 +1,8 @@
 import {StyleSheet} from "react-native";
+import {Dimensions} from "react-native";
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
     layout: {
@@ -12,6 +16,12 @@ const styles = StyleSheet.create({
         position: 'relative'
     },
 
+    search: {
+        marginTop: -windowHeight * 0.04,
+        alignSelf: "center",
+        width: windowWidth * 0.9
+    },
+
     content: {
         flex: 7
     },
@@ -21,9 +31,9 @@ const styles = StyleSheet.create({
     },
 
     linearGradient: {
-        paddingTop: '10%',
-        paddingLeft: '7%',
-        paddingRight: '7%',
+        paddingTop: windowHeight * 0.07,
+        paddingLeft: windowHeight * 0.04,
+        paddingRight: windowHeight * 0.04,
         flex: 1,
     },
 
@@ -36,12 +46,12 @@ const styles = StyleSheet.create({
 
     back: {
         position: "absolute",
-        left:-10,
+        left: -10,
         top: 0
     },
 
     titleText: {
-        flex:7,
+        flex: 7,
         textAlign: "center",
         fontSize: 20,
         color: "#fff",
