@@ -1,24 +1,36 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from "react-native";
 
-StyleSheet.create({
+const styles = StyleSheet.create({
     layout: {
         display: "flex",
-        height:"100%",
-        flex:4
+        flex: 1
     },
 
     header: {
-        flex:1,
-        backgroundColor: "red"
+        flex: 2,
+        borderRadius: 50,
+        position:'relative'
     },
 
     content: {
-        flex:2,
-        backgroundColor: "blue",
+        flex: 7
     },
 
     footer: {
-        flex:1,
-        backgroundColor: "green",
-    }
+        flex: 1,
+    },
+
+    linearGradient: {
+        paddingTop:"10%",
+        flex: 1,
+    },
+    buttonText: {
+        fontSize: 18,
+        textAlign: 'center',
+        margin: 10,
+        color: '#ffffff',
+        backgroundColor: 'transparent',
+    },
 });
+
+export default styles;
