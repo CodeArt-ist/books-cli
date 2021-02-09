@@ -95,8 +95,7 @@ function MainTabNavigator() {
     }
 
     return (
-        <Tab.Navigator
-            tabBarOptions={tabOptions}>
+        <Tab.Navigator tabBarOptions={tabOptions}>
 
             <Tab.Screen name={t('dashboard.homepage')} component={Home} options={screenOptions.homepage}/>
             <Tab.Screen name={t('dashboard.search')} component={Search} options={screenOptions.search}/>

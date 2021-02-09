@@ -1,9 +1,6 @@
 import React from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const Api = ({url, callback}) => {
-    return 'ok';
-}
 
 export const Get = async (url, callback, headers) => {
 
