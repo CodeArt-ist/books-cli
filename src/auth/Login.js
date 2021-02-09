@@ -62,10 +62,10 @@ const Login = ({navigation}) => {
                     <View style={styles.buttonCover}>
                         <Button loading={loading} title={t('login.signIn')} onPress={() => loginFunc()}/>
                         <View style={styles.registerTextWrapper}>
-                            <Text style={styles.registerText}>New here ? </Text>
+                            <Text style={styles.registerText}>{t('login.registerText')}</Text>
                             <TouchableOpacity onPress={() => navigation.navigate('Register')}>
                                 <Text style={{...styles["registerText"], ...styles.underlineText}}>
-                                    Create an account
+                                    {t("login.registerClickableText")}
                                 </Text>
                             </TouchableOpacity>
                         </View>

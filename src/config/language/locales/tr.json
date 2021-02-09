@@ -3,7 +3,9 @@
     "headerTitle": "Giriş Yap",
     "email": "E-Posta",
     "password": "Parola",
-    "signIn": "Giriş Yap"
+    "signIn": "Giriş Yap",
+    "registerText": "Buralarda yeni misin ?  ",
+    "registerClickableText": "Hesap Oluştur"
   },
   "register": {
     "headerTitle": "Kayıt Ol"

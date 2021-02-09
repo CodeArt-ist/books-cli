@@ -3,7 +3,9 @@
         "headerTitle": "Login",
         "email": "Email",
         "password": "Password",
-        "signIn": "Login"
+        "signIn": "Login",
+        "registerText": "New here ? ",
+        "registerClickableText": "Create an account"
     },
     "register": {
         "headerTitle": "Register"
