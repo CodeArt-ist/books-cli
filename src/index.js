@@ -64,46 +64,46 @@ function MainTabNavigator() {
 
     const {t} = i18n;
 
+    const tabOptions = {
+        activeTintColor: '#384F7D',
+        inactiveTintColor: '#A5B0C4',
+        style: {
+            backgroundColor: '#ffffff'
+        }
+    }
+
+    const screenOptions = {
+        "homepage": {
+            tabBarIcon: ({color, size}) => <Ionicons name={'ios-home'} color={color} size={size}/>
+        },
+
+        "search": {
+            tabBarIcon: ({color, size}) => <Ionicons name={'search-outline'} color={color} size={size}/>
+        },
+
+        "newReview": {
+            tabBarIcon: ({color, size}) => <Ionicons name={'add-outline'} color={color} size={size}/>
+        },
+
+        "reviews": {
+            tabBarIcon: ({color, size}) => <Ionicons name={'bulb-outline'} color={color} size={size}/>
+        },
+
+        "profile": {
+            tabBarIcon: ({color, size}) => <Ionicons name={'person-outline'} color={color} size={size}/>
+        }
+    }
+
     return (
         <Tab.Navigator
-            tabBarOptions={{
-                activeTintColor: '#384F7D',
-                inactiveTintColor: '#A5B0C4',
-                style: {
-                    backgroundColor: '#ffffff'
-                }
-            }}>
+            tabBarOptions={tabOptions}>
 
-            <Tab.Screen name={t('dashboard.homepage')} component={Home}
-                        options={{
-                            tabBarIcon: ({color, size}) => (
-                                <Ionicons name={'ios-home'} color={color} size={size}/>
-                            ),
-                        }}/>
-            <Tab.Screen name={t('dashboard.search')} component={Search}
-                        options={{
-                            tabBarIcon: ({color, size}) => (
-                                <Ionicons name={'search-outline'} color={color} size={size}/>
-                            ),
-                        }}/>
-            <Tab.Screen name={t('dashboard.new')} component={NewReview}
-                        options={{
-                            tabBarIcon: ({color, size}) => (
-                                <Ionicons name={'add-outline'} color={color} size={size}/>
-                            ),
-                        }}/>
-            <Tab.Screen name={t('dashboard.reviews')} component={ReviewList}
-                        options={{
-                            tabBarIcon: ({color, size}) => (
-                                <Ionicons name={'bulb-outline'} color={color} size={size}/>
-                            ),
-                        }}/>
-            <Tab.Screen name={t('dashboard.profile')} component={Profile}
-                        options={{
-                            tabBarIcon: ({color, size}) => (
-                                <Ionicons name={'person-outline'} color={color} size={size}/>
-                            ),
-                        }}/>
+            <Tab.Screen name={t('dashboard.homepage')} component={Home} options={screenOptions.homepage}/>
+            <Tab.Screen name={t('dashboard.search')} component={Search} options={screenOptions.search}/>
+            <Tab.Screen name={t('dashboard.new')} component={NewReview} options={screenOptions.newReview}/>
+            <Tab.Screen name={t('dashboard.reviews')} component={ReviewList} options={screenOptions.reviews}/>
+            <Tab.Screen name={t('dashboard.profile')} component={Profile} options={screenOptions.profile}/>
+
         </Tab.Navigator>
     )
 }
