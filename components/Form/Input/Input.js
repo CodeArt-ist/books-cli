@@ -1,9 +1,10 @@
 import React, {useState} from "react";
-import {View, TextInput, Text} from "react-native";
+import {View, TextInput, Text, Animated, Button} from "react-native";
 import styles from './input.css'
 import {validColor, invalidColor} from "../../../src/config/language/colors";
+import PropTypes from 'prop-types';
 
-const Input = ({placeholder, label, onChange, type, value, style= {},options}) => {
+const Input = React.memo(({placeholder, label, onChange, type, value, style = {}, options}) => {
 
     const [valid, setValid] = useState(false)
 
@@ -19,9 +20,9 @@ const Input = ({placeholder, label, onChange, type, value, style= {},options}) =
             let fn = window[process];
 
             let parameter;
-            if  (typeof fn === 'function') {
+            if (typeof fn === 'function') {
                 parameter = fn(e)
-            }else {
+            } else {
                 try {
                     parameter = e[process]
                 } catch (error) {
@@ -29,18 +30,13 @@ const Input = ({placeholder, label, onChange, type, value, style= {},options}) =
                 }
             }
 
-            setValid(validations(name,value,parameter))
+            setValid(validations(name, value, parameter))
         }
 
         return onChange(e);
     }
 
-    const validations = (name, value, parameter) => {
-        switch (name) {
-            case 'bigger_than' :
-                return parameter > value
-        }
-    }
+
 
     return (
         <View style={styles.container}>
@@ -50,9 +46,36 @@ const Input = ({placeholder, label, onChange, type, value, style= {},options}) =
                        onChangeText={e => onInputChange(e)}
                        placeholder={placeholder}
                        value={value}
-                       style={{...styles.input, borderBottomColor: valid ? validColor : invalidColor, ...style }}/>
+                       style={{
+                           ...styles.input,
+                           borderBottomColor: valid ? validColor : invalidColor,
+                           ...style
+                       }}/>
         </View>
     )
-}
+})
 
 export default Input;
+
+Input.propTypes = {
+    placeholder: PropTypes.string,
+    label: PropTypes.string,
+    onChange: PropTypes.func.isRequired,
+    type: PropTypes.string,
+    value: PropTypes.any,
+    style: PropTypes.object,
+    options: PropTypes.any,
+    onTouch: PropTypes.func
+}
+
+
+Input.defaultProps = {
+    style: {},
+}
+
+export const validations = (name, value, parameter) => {
+    switch (name) {
+        case 'bigger_than' :
+            return parameter > value
+    }
+}

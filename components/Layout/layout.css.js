@@ -7,7 +7,7 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
     layout: {
         display: "flex",
-        flex: 1
+        flex: 1,
     },
 
     header: {
@@ -23,18 +23,17 @@ const styles = StyleSheet.create({
     },
 
     content: {
-        flex: 7
-    },
-
-    footer: {
-        flex: 1,
+        marginTop: windowHeight*0.02,
+        height: windowHeight*0.90
     },
 
     linearGradient: {
-        paddingTop: windowHeight * 0.07,
-        paddingLeft: windowHeight * 0.04,
-        paddingRight: windowHeight * 0.04,
-        flex: 1,
+        position:"relative",
+        flexWrap:"nowrap",
+        display: "flex",
+        alignItems:"center",
+        justifyContent: "center",
+        height: windowHeight*0.18
     },
 
     title: {
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
 
     back: {
         position: "absolute",
-        left: -10,
+        left: 10,
         top: 0
     },
 

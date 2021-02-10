@@ -5,7 +5,7 @@ import Layout from '../../components/Layout/Layout';
 const Home = () => {
     return (
         <Layout search={true} title={"My Book List"}>
-            <Text>Ana Sayfa</Text>
+
         </Layout>
     )
 }
