@@ -67,8 +67,10 @@ function MainTabNavigator() {
     const tabOptions = {
         activeTintColor: '#384F7D',
         inactiveTintColor: '#A5B0C4',
+        keyboardHidesTabBar: true,
         style: {
-            backgroundColor: '#ffffff'
+            backgroundColor: '#ffffff',
+            position: "absolute"
         }
     }
 
