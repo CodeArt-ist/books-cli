@@ -3,7 +3,7 @@ import { Get } from '../../config/services/api/Api';
 import { APP } from '../../../app.config';
 
 const bookSlice = createSlice({
-  name: 'book',
+  name: 'bookReducer',
   initialState: {
     loading: true,
     results: [],
