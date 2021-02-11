@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     },
 
     searchContainer: {
-        position: "absolute",
+        position: "relative",
         display: "flex",
         width: "100%",
         justifyContent: 'center',

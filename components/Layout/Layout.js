@@ -7,12 +7,12 @@ import SearchInput from "../Form/Input/SearchInput";
 import styles from './layout.css'
 
 
-const Layout = React.memo(({children, title, back, search}) => {
+const Layout = React.memo(({children, title, back, search, style={}}) => {
 
     const [searchText, setSearchText] = useState()
 
     return (
-        <KeyboardAwareScrollView style={styles.layout}>
+        <KeyboardAwareScrollView style={{...styles.layout, ...style}}>
             <View style={styles.header}>
 
                 <LinearGradient
@@ -28,10 +28,10 @@ const Layout = React.memo(({children, title, back, search}) => {
 
                 </LinearGradient>
 
-                <SearchInput style={styles.search}
-                             onChange={e => setSearchText(e)}
-                             value={searchText}
-                             placeholder={"Search Book"}/>
+                {search && <SearchInput style={styles.search}
+                              onChange={e => setSearchText(e)}
+                              value={searchText}
+                              placeholder={"Search Book"}/>}
             </View>
 
 
