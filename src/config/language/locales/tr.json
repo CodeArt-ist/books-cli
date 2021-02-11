@@ -10,11 +10,11 @@
   "register": {
     "headerTitle": "Kayıt Ol"
   },
-  "dashboard":{
-    "homepage":"Anasayfa",
-    "search":"Arama",
-    "new":"Yeni Ekle",
-    "reviews":"İncelemelerim",
-    "profile":"Profil"
+  "dashboard": {
+    "homepage": "Anasayfa",
+    "search": "Arama",
+    "new": "Yeni Ekle",
+    "reviews": "İncelemelerim",
+    "profile": "Profil"
   }
 }

@@ -1,20 +1,20 @@
 {
-    "login": {
-        "headerTitle": "Login",
-        "email": "Email",
-        "password": "Password",
-        "signIn": "Login",
-        "registerText": "New here ? ",
-        "registerClickableText": "Create an account"
-    },
-    "register": {
-        "headerTitle": "Register"
-    },
-    "dashboard":{
-        "homepage":"Timeline",
-        "search":"Search",
-        "new":"New Add",
-        "reviews":"My Reviews",
-        "profile":"Profile"
-      }
+  "login": {
+    "headerTitle": "Login",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Login",
+    "registerText": "New here ? ",
+    "registerClickableText": "Create an account"
+  },
+  "register": {
+    "headerTitle": "Register"
+  },
+  "dashboard": {
+    "homepage": "Timeline",
+    "search": "Search",
+    "new": "New Add",
+    "reviews": "My Reviews",
+    "profile": "Profile"
+  }
 }

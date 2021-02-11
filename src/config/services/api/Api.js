@@ -1,60 +1,60 @@
-import React from "react";
+import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export const Get = async (url, callback, headers) => {
 
-    let defaultHeaders = await setHeader(headers)
+  let defaultHeaders = await setHeader(headers);
 
-    return fetch(url,{
-        headers: defaultHeaders
+  return fetch(url, {
+    headers: defaultHeaders,
+  })
+    .then(response => response.json())
+    .then(responseJson => {
+
+      return callback(responseJson, false);
+
     })
-        .then(response => response.json())
-        .then(responseJson => {
-
-            return callback(responseJson, false);
-
-        })
-        .catch(error => {
-            return callback(false, error)
-        });
-}
+    .catch(error => {
+      return callback(false, error);
+    });
+};
 
 export const Post = async (url, body, callback, headers) => {
 
-    let defaultHeaders = await setHeader(headers)
+  let defaultHeaders = await setHeader(headers);
 
-    return fetch(url, {
-        method: "POST",
-        headers: defaultHeaders,
-        body: JSON.stringify({
-            ...body
-        }),
+  return fetch(url, {
+    method: 'POST',
+    headers: defaultHeaders,
+    body: JSON.stringify({
+      ...body,
+    }),
+  })
+    .then(response => response.json())
+    .then(responseJson => {
+      return callback(responseJson, false);
     })
-        .then(response => response.json())
-        .then(responseJson => {
-            return callback(responseJson, false);
-        })
-        .catch(error => {
-            return callback(false, error)
-        });
-}
+    .catch(error => {
+      return callback(false, error);
+    });
+};
 
 const setHeader = async (headers) => {
-    let defaultHeaders = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-    }
+  let defaultHeaders = {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  };
 
-    if (headers) {
-        defaultHeaders = {...defaultHeaders, headers}
-    }
+  if (headers) {
+    defaultHeaders = { ...defaultHeaders, headers };
+  }
 
-    const accessToken = await AsyncStorage.getItem('token')
+  const accessToken = await AsyncStorage.getItem('token');
 
-    if (accessToken) {
-        defaultHeaders = {...defaultHeaders, "Authorization": `Bearer ${accessToken}`}
-    }
+  if (accessToken) {
+    defaultHeaders = { ...defaultHeaders, 'Authorization': `Bearer ${accessToken}` };
+  }
 
-    return defaultHeaders;
-}
+  return defaultHeaders;
+};
