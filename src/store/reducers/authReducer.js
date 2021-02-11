@@ -47,7 +47,6 @@ export const loginAsync = (email, password) => async dispatch => {
         }
       }
       if (response.error) {
-        console.log('error', response.error);
         dispatch(login(response));
       }
     } else if (error) {
@@ -62,5 +61,5 @@ export const setTokenAsync = (token) => async dispatch => {
 
 export const logoutAsync = () => async dispatch => {
   await AsyncStorage.removeItem('token');
-  await dispatch(logout({ userToken: null }))
-}
+  await dispatch(logout({ userToken: null }));
+};
