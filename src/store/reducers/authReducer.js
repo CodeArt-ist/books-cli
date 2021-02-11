@@ -23,7 +23,7 @@ const authSlice = createSlice({
       state.errors = action.payload.message;
     },
     logout(state, action) {
-      state.token = null;
+      state.userToken = null;
     },
     setToken(state, action) {
       state.userToken = action.payload;
@@ -59,3 +59,8 @@ export const loginAsync = (email, password) => async dispatch => {
 export const setTokenAsync = (token) => async dispatch => {
   await dispatch(setToken(token));
 };
+
+export const logoutAsync = () => async dispatch => {
+  await AsyncStorage.removeItem('token');
+  await dispatch(logout({ userToken: null }))
+}
