@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Image, Text, StyleSheet, Dimensions } from 'react-native';
+import { ActivityIndicator, Dimensions, Image, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../../components/Layout/Layout';
 import { selfLinkAsync } from '../../store/reducers/bookReducer';
@@ -11,7 +11,9 @@ const BookDetails = ({ route, navigation }) => {
 
   useEffect(() => {
 
-    dispatch(selfLinkAsync(route.params.selfLink));
+    if (route.params?.selfLink) {
+      dispatch(selfLinkAsync(route.params.selfLink));
+    }
 
   }, []);
 
@@ -41,6 +43,6 @@ const styles = StyleSheet.create({
     marginLeft: -Dimensions.get('window').height * 0.05,
     width: 250,
     height: 250,
-    resizeMode: "contain"
-  }
+    resizeMode: 'contain',
+  },
 });
