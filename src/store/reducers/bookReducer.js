@@ -25,7 +25,7 @@ export const searchAsync = (searchTerm) => async dispatch => {
     if (res) {
       dispatch(search(res));
     }
-    if (!err) {
+    if (err) {
       dispatch(search([]));
     }
   });

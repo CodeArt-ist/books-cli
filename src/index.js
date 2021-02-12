@@ -15,6 +15,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Splash from './auth/Splash';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTokenAsync } from './store/reducers/authReducer';
+import BookDetails from './dashboard/SubScreens/BookDetails';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -47,6 +48,7 @@ const Index = () => {
             ?
             <>
               <Stack.Screen name={'HomePage'} component={MainTabNavigator} />
+              <Stack.Screen name={'BookDetails'} component={BookDetails} />
             </>
             :
             <>

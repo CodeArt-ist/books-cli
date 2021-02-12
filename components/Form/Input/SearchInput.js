@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import styles from './input.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchAsync } from '../../../src/store/reducers/bookReducer';
 
-const SearchInput = ({ value, placeholder, onChange, style }) => {
+const SearchInput = ({ navigation, value, placeholder, onChange, style }) => {
 
   const state = useSelector(state => state.book);
   const dispatch = useDispatch();
@@ -15,24 +15,27 @@ const SearchInput = ({ value, placeholder, onChange, style }) => {
 
   const onSearchInputChange = (e) => {
     setSearchTerm(e);
-    if (searchTerm && searchTerm.length > 2) {
-      dispatch(searchAsync(searchTerm));
-    }
-
+    dispatch(searchAsync(searchTerm));
     return onChange(e);
   };
 
   const RenderResults = () => {
-    if (searchTerm && searchTerm.length > 0) {
-      if (results.length > 0) {
-        return results.map((e, i) => {
-          return <Text key={i} style={styles.searchResult}>{e}</Text>;
-        });
-      }
+    if (results.length > 0) {
+      return results.map((e, i) => {
+        return <Result key={i} selfLink={e.selfLink} title={e.title} />;
+      });
     }
 
     return null;
 
+  };
+
+  const Result = ({ title, selfLink }) => {
+    return (
+      <TouchableOpacity onPress={() => navigation.navigate('BookDetails', {selfLink})}>
+        <Text style={styles.searchResult}>{title}</Text>
+      </TouchableOpacity>
+    );
   };
 
   return (

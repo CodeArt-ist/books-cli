@@ -1,14 +1,10 @@
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useDispatch } from 'react-redux';
-import { logoutAsync } from '../../../store/reducers/authReducer';
 
 
 export const Get = async (url, callback, headers) => {
 
   let defaultHeaders = await setHeader(headers);
-
-  const dispatch = useDispatch();
 
   return fetch(url, {
     headers: defaultHeaders,
@@ -21,7 +17,7 @@ export const Get = async (url, callback, headers) => {
     })
     .catch(error => {
       if (error.statusCode === 401) {
-        dispatch(logoutAsync());
+        AsyncStorage.removeItem('token');
       }
       return callback(false, error);
     });
@@ -44,7 +40,7 @@ export const Post = async (url, body, callback, headers) => {
     })
     .catch(error => {
       if (error.statusCode === 401) {
-        dispatch(logoutAsync());
+        AsyncStorage.removeItem('token');
       }
       return callback(false, error);
     });

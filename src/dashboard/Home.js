@@ -3,7 +3,7 @@ import { Image, Text, View } from 'react-native';
 import Layout from '../../components/Layout/Layout';
 import bookMark from '../../assets/icons/bookmark.png';
 
-const Home = () => {
+const Home = ({navigation}) => {
 
   const books = [];
 
@@ -26,7 +26,7 @@ const Home = () => {
 
 
   return (
-    <Layout search={true} title={'My Book List'}>
+    <Layout navigation={navigation} search={true} title={'My Book List'}>
       <RenderBooks />
     </Layout>
   );

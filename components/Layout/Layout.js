@@ -7,7 +7,7 @@ import SearchInput from "../Form/Input/SearchInput";
 import styles from './layout.css'
 
 
-const Layout = React.memo(({children, title, back, search, style={}}) => {
+const Layout = React.memo(({navigation,children, title, back, search, style={}}) => {
 
     const [searchText, setSearchText] = useState()
 
@@ -28,7 +28,7 @@ const Layout = React.memo(({children, title, back, search, style={}}) => {
 
                 </LinearGradient>
 
-                {search && <SearchInput style={styles.search}
+                {search && <SearchInput navigation={navigation} style={styles.search}
                               onChange={e => setSearchText(e)}
                               value={searchText}
                               placeholder={"Search Book"}/>}
