@@ -13,6 +13,8 @@ const BookDetails = ({ route, navigation }) => {
 
     if (route.params?.selfLink) {
       dispatch(selfLinkAsync(route.params.selfLink));
+    } else {
+      navigation.pop()
     }
 
   }, []);
