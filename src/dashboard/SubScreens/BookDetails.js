@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Image, Text } from 'react-native';
+import { ActivityIndicator, Image, Text, StyleSheet, Dimensions } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../../components/Layout/Layout';
 import { selfLinkAsync } from '../../store/reducers/bookReducer';
@@ -16,13 +16,17 @@ const BookDetails = ({ route, navigation }) => {
   }, []);
 
   return (
-    <Layout loading={state.loading} title={state.loading ? null : state.self.volumeInfo.title}>
+    <Layout back loading={state.loading} title={state.loading ? null : state.self.volumeInfo.title}>
       {
         state.loading ? <ActivityIndicator />
           :
           <>
-            <Text>{ state.self.volumeInfo.description} </Text>
-            <Image source={state.self.volumeInfo.imageLinks.large} />
+            <Image
+              style={styles.image}
+              source={{
+                uri: state.self.volumeInfo.imageLinks.large,
+              }}
+            />
           </>
       }
     </Layout>
@@ -30,3 +34,13 @@ const BookDetails = ({ route, navigation }) => {
 };
 
 export default BookDetails;
+
+const styles = StyleSheet.create({
+  image: {
+    marginTop: -Dimensions.get('window').height * 0.05,
+    marginLeft: -Dimensions.get('window').height * 0.05,
+    width: 250,
+    height: 250,
+    resizeMode: "contain"
+  }
+});

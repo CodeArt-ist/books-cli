@@ -49,7 +49,8 @@ const Layout = React.memo(({ navigation, children, title, back, loading, search,
           <View style={styles.content}>
             {children}
           </View>
-        </>}
+        </>
+      }
     </KeyboardAwareScrollView>
   );
 });
