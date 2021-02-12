@@ -23,7 +23,7 @@ const authSlice = createSlice({
       state.errors = action.payload.message;
     },
     logout(state, action) {
-      state.userToken = null;
+      state.userToken = action.payload ?? null;
     },
     setToken(state, action) {
       state.userToken = action.payload;

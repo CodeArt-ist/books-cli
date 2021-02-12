@@ -32,7 +32,7 @@ const SearchInput = ({ navigation, value, placeholder, onChange, style }) => {
 
   const Result = ({ title, selfLink }) => {
     return (
-      <TouchableOpacity onPress={() => navigation.navigate('BookDetails', {selfLink})}>
+      <TouchableOpacity onPress={() => navigation.navigate('BookDetails', { selfLink })}>
         <Text style={styles.searchResult}>{title}</Text>
       </TouchableOpacity>
     );
