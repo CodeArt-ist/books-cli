@@ -11,24 +11,29 @@ const BookDetails = ({ route, navigation }) => {
 
   useEffect(() => {
 
-    if (route.params?.selfLink) {
-      dispatch(selfLinkAsync(route.params.selfLink));
-    } else {
-      navigation.pop()
-    }
+    const boostrapAsync = async () => {
+      if (route.params?.selfLink) {
+        dispatch(await selfLinkAsync(route.params.selfLink));
+      } else {
+        await navigation.pop();
+      }
+    };
+
+    boostrapAsync();
 
   }, []);
 
   return (
-    <Layout back loading={state.loading} title={state.loading ? null : state.self.volumeInfo.title}>
+    <Layout navigation={navigation} back loading={state.loading}
+            title={state.loading ? null : state.self.volumeInfo.title}>
       {
-        state.loading ? <ActivityIndicator />
-          :
-          <>
+        state.loading
+          ? <ActivityIndicator />
+          : <>
             <Image
               style={styles.image}
               source={{
-                uri: state.self.volumeInfo.imageLinks.large,
+                uri: state.self.volumeInfo.imageLinks?.small,
               }}
             />
           </>

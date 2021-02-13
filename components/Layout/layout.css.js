@@ -44,9 +44,7 @@ const styles = StyleSheet.create({
     },
 
     back: {
-        position: "absolute",
-        left: 10,
-        top: 0
+        marginLeft: 10
     },
 
     titleText: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ActivityIndicator, Dimensions, Text, View } from 'react-native';
+import { ActivityIndicator, Dimensions, Text, TouchableOpacity, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -33,7 +33,11 @@ const Layout = React.memo(({ navigation, children, title, back, loading, search,
               style={styles.linearGradient}>
 
               <View style={styles.title}>
-                {back && <Ionicons style={styles.back} name={'arrow-back-outline'} color={'#fff'} size={32} />}
+                {back &&
+                <TouchableOpacity onPress={() => navigation.pop()}>
+                    <Ionicons style={styles.back} name={'arrow-back-outline'} color={'#fff'} size={32} />
+                </TouchableOpacity>
+                }
                 <Text style={styles.titleText}>{title}</Text>
               </View>
 
