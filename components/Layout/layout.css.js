@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
 
     content: {
         marginTop: windowHeight*0.02,
-        height: windowHeight*0.90
+        marginBottom:10,
+        flex:1
     },
 
     linearGradient: {

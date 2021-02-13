@@ -21,9 +21,11 @@ const SearchInput = ({ navigation, value, placeholder, onChange, style }) => {
 
   const RenderResults = () => {
     if (results.length > 0) {
-      return results.map((e, i) => {
-        return <Result key={i} selfLink={e.selfLink} title={e.title} />;
-      });
+      if (searchTerm?.length > 0) {
+        return results.map((e, i) => {
+          return <Result key={i} selfLink={e.selfLink} title={e.title} />;
+        });
+      }
     }
 
     return null;
