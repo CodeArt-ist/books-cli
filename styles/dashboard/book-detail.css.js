@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#384F7D'
+    color: '#384F7D',
   },
 
   bookAuthor: {
@@ -43,19 +43,19 @@ const styles = StyleSheet.create({
 
   descriptionContainer: {
     padding: 10,
-    textAlign: 'center'
+    textAlign: 'center',
   },
 
   htmlStyle: {
     letterSpacing: 0,
     color: '#384F7D',
-    lineHeight: 20
+    lineHeight: 20,
   },
 
   addButton: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: 10
+    marginBottom: 10,
   },
 
 });

@@ -1,17 +1,22 @@
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useDispatch } from 'react-redux';
+import { logoutAsync } from '../../../store/reducers/authReducer';
 
 
 export const Get = async (url, callback, headers) => {
 
+  const dispatch = useDispatch()
   let defaultHeaders = await setHeader(headers);
 
   return fetch(url, {
     headers: defaultHeaders,
   })
     .then(response => response.json())
-    .then(responseJson => {
-
+    .then(async responseJson => {
+      if (responseJson.statusCode === 401) {
+        dispatch(await logoutAsync())
+      }
       return callback(responseJson, false);
 
     })
