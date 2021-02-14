@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import { ActivityIndicator, Dimensions, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Dimensions, Image, ScrollView, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../../../components/Layout/Layout';
 import { selfLinkAsync } from '../../store/reducers/bookReducer';
 import HTML from 'react-native-render-html';
 import Button from '../../../components/Form/Button/Button';
-import styles from '../../../styles/dashboard/book-detail.css'
+import styles from '../../../styles/dashboard/book-detail.css';
 
 const BookDetails = ({ route, navigation }) => {
 
@@ -28,7 +28,7 @@ const BookDetails = ({ route, navigation }) => {
 
 
   const Render = () => {
-    if (state.isLoading) {
+    if (state.loading) {
       return <ActivityIndicator />;
     } else {
       if (state.self) {
@@ -37,14 +37,11 @@ const BookDetails = ({ route, navigation }) => {
             <View style={styles.header}>
               <Image style={styles.image} source={{ uri: state.self?.volumeInfo?.imageLinks?.thumbnail }} />
               <View style={styles.bookInformation}>
-
                 <Text style={styles.bookTitle}>
                   {state.self?.volumeInfo?.title}
                 </Text>
                 <Text style={styles.bookAuthor}>{state.self.volumeInfo?.authors}</Text>
               </View>
-
-
             </View>
 
             <View style={styles.descriptionContainer}>
@@ -57,12 +54,12 @@ const BookDetails = ({ route, navigation }) => {
                           contentWidth={Dimensions.get('window').width * 0.7} />
                     : null
                 }
-
               </ScrollView>
             </View>
 
             <View style={styles.addButton}>
-              <Button onPress={() => alert('clicked')} title={'Add Review'}>Deneme</Button>
+              <Button onPress={() => navigation.navigate('AddReview', { book: state.self })}
+                      title={'Add Review'}/>
             </View>
           </View>
         );

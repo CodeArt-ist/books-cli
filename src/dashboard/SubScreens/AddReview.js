@@ -1,12 +1,18 @@
-import React from "react";
-import { View } from 'react-native';
+import React, { useEffect } from 'react';
+import { Text, View } from 'react-native';
+import Layout from '../../../components/Layout/Layout';
 
-const AddReview = () => {
-    return (
-        <View>
+const AddReview = ({ route, navigation }) => {
 
-        </View>
-    )
-}
+  useEffect(() => {
+
+  },[]);
+
+  return (
+    <Layout navigation={navigation} back title={"Add Book Review"} >
+
+    </Layout>
+  );
+};
 
 export default AddReview;

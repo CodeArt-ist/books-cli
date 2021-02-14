@@ -25,14 +25,17 @@ export default bookSlice.reducer;
 
 
 export const searchAsync = (searchTerm) => async dispatch => {
-  await Get(APP.API_URL + '/book/search/' + searchTerm, (res, err) => {
-    if (res) {
-      dispatch(search(res));
-    }
-    if (err) {
-      dispatch(search([]));
-    }
-  });
+  if (searchTerm) {
+    await Get(APP.API_URL + '/book/search/' + searchTerm, (res, err) => {
+      if (res) {
+        dispatch(search(res));
+      }
+      if (err) {
+        dispatch(search([]));
+      }
+    });
+  }
+
 };
 
 export const selfLinkAsync = (url) => async dispatch => {
