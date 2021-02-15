@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {View, TextInput, Text, Animated, Button} from "react-native";
 import styles from './input.css'
-import {validColor, invalidColor} from "../../../src/config/language/colors";
+import {validColor, invalidColor} from "../../../styles/colors";
 import PropTypes from 'prop-types';
 
 const Input = React.memo(({placeholder, label, onChange, type, value, style = {}, options}) => {

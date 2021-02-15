@@ -5,6 +5,7 @@ import Layout from '../../../components/Layout/Layout';
 import { selfLinkAsync } from '../../store/reducers/bookReducer';
 import HTML from 'react-native-render-html';
 import Button from '../../../components/Form/Button/Button';
+import i18n from '../../config/language/i18n';
 import styles from '../../../styles/dashboard/book-detail.css';
 
 const BookDetails = ({ route, navigation }) => {
@@ -58,7 +59,8 @@ const BookDetails = ({ route, navigation }) => {
             </View>
 
             <View style={styles.addButton}>
-              <Button onPress={() => navigation.navigate('AddReview', { book: state.self })}
+
+              <Button onPress={() => navigation.navigate(i18n.t('dashboard.new'), { book: state.self })}
                       title={'Add Review'}/>
             </View>
           </View>

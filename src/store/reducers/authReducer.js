@@ -56,6 +56,7 @@ export const loginAsync = (email, password) => async dispatch => {
 };
 
 export const setTokenAsync = (token) => async dispatch => {
+  // token verify
   await dispatch(setToken(token));
 };
 
