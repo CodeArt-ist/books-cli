@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Dimensions, Image, StyleSheet, View } from 'react-native';
-import Layout from '../../../components/Layout/Layout';
 import Textarea from 'react-native-textarea';
+import Layout from '../../../components/Layout/Layout';
 import { invalidColor } from '../../../styles/colors';
 
 const NewReview = ({ navigation, route }) => {
