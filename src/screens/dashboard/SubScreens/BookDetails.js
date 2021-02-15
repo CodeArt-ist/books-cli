@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { ActivityIndicator, Dimensions, Image, ScrollView, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import Layout from '../../../components/Layout/Layout';
-import { selfLinkAsync } from '../../store/reducers/bookReducer';
+import Layout from '../../../../components/Layout/Layout';
+import { selfLinkAsync } from '../../../store/reducers/bookReducer';
 import HTML from 'react-native-render-html';
-import Button from '../../../components/Form/Button/Button';
-import i18n from '../../config/language/i18n';
-import styles from '../../../styles/dashboard/book-detail.css';
+import Button from '../../../../components/Form/Button/Button';
+import i18n from '../../../config/language/i18n';
+import styles from '../../../../styles/dashboard/book-detail.css';
 
 const BookDetails = ({ route, navigation }) => {
 

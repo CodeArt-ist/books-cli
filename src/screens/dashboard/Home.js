@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
-import Layout from '../../components/Layout/Layout';
-import bookMark from '../../assets/icons/bookmark.png';
+import Layout from '../../../components/Layout/Layout';
+import bookMark from '../../../assets/icons/bookmark.png';
 
 const Home = ({navigation}) => {
 

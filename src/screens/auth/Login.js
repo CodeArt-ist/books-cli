@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { ImageBackground, Text, TouchableOpacity, View } from 'react-native';
 import styles from './Login.css';
-import i18n from '../config/language/i18n';
-import Input from '../../components/Form/Input/Input';
-import Button from '../../components/Form/Button/Button';
-import backgroundImage from '../../assets/background.png';
-import Alert from '../../components/Alert/Alert';
+import i18n from '../../config/language/i18n';
+import Input from '../../../components/Form/Input/Input';
+import Button from '../../../components/Form/Button/Button';
+import backgroundImage from '../../../assets/background.png';
+import Alert from '../../../components/Alert/Alert';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginAsync } from '../store/reducers/authReducer';
+import { loginAsync } from '../../store/reducers/authReducer';
 
 const Login = ({ navigation }) => {
 

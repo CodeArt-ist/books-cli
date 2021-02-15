@@ -1,8 +1,8 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import Layout from '../../components/Layout/Layout';
+import Layout from '../../../components/Layout/Layout';
 import { useDispatch } from 'react-redux';
-import { logoutAsync } from '../store/reducers/authReducer';
+import { logoutAsync } from '../../store/reducers/authReducer';
 
 const Profile = () => {
 
