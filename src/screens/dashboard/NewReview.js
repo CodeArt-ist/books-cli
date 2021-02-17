@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Dimensions, Image, StyleSheet, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import Textarea from 'react-native-textarea';
 import Layout from '../../../components/Layout/Layout';
 import { invalidColor } from '../../../styles/colors';
@@ -10,6 +10,35 @@ const NewReview = ({ navigation, route }) => {
   const [uri, setUri] = useState();
   const [review, setReview] = useState();
 
+  const Render = () => {
+
+    if (!title && !uri) {
+      return (
+        <View style={{ height: 300, alignItems: 'center', justifyContent: 'center' }}>
+          <Text>İnceleme eklemek için yukarıdaki arama alanını kullanınız.</Text>
+        </View>
+      );
+    } else {
+      return (
+        <>
+          <Image source={{ uri: uri ? uri : null }}
+                 style={{ width: 150, height: 200, resizeMode: 'contain', marginBottom: 20 }} />
+          <View style={styles.container}>
+            <Textarea
+              containerStyle={styles.textareaContainer}
+              style={styles.textarea}
+              onChangeText={(e) => setReview(e)}
+              defaultValue={review}
+              maxLength={350}
+              placeholder={'write your review'}
+              placeholderTextColor={invalidColor}
+              underlineColorAndroid={'transparent'}
+            />
+          </View>
+        </>
+      );
+    }
+  };
 
   useEffect(() => {
     if (route.params?.book) {
@@ -20,22 +49,9 @@ const NewReview = ({ navigation, route }) => {
   }, [route]);
 
   return (
-    <Layout navigation={navigation} title={title}>
+    <Layout navigation={navigation} search={!title} title={title}>
       <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <Image source={{ uri: uri ? uri : null }}
-               style={{ width: 150, height: 200, resizeMode: 'contain', marginBottom: 20 }} />
-        <View style={styles.container}>
-          <Textarea
-            containerStyle={styles.textareaContainer}
-            style={styles.textarea}
-            onChangeText={(e) => setReview(e)}
-            defaultValue={review}
-            maxLength={350}
-            placeholder={'write your review'}
-            placeholderTextColor={invalidColor}
-            underlineColorAndroid={'transparent'}
-          />
-        </View>
+        <Render />
       </View>
     </Layout>
   );
