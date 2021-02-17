@@ -3,6 +3,8 @@ import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import Textarea from 'react-native-textarea';
 import Layout from '../../../components/Layout/Layout';
 import { invalidColor } from '../../../styles/colors';
+import i18n from '../../config/language/i18n';
+import styles from '../../../styles/dashboard/new-review.css'
 
 const NewReview = ({ navigation, route }) => {
 
@@ -10,19 +12,22 @@ const NewReview = ({ navigation, route }) => {
   const [uri, setUri] = useState();
   const [review, setReview] = useState();
 
+  // translate
+  const { t } = i18n;
+
   const Render = () => {
 
     if (!title && !uri) {
       return (
-        <View style={{ height: 300, alignItems: 'center', justifyContent: 'center' }}>
-          <Text>İnceleme eklemek için yukarıdaki arama alanını kullanınız.</Text>
+        <View style={styles.notYetContainer}>
+          <Text>{t('newReview.not_yet')}</Text>
         </View>
       );
     } else {
       return (
         <>
           <Image source={{ uri: uri ? uri : null }}
-                 style={{ width: 150, height: 200, resizeMode: 'contain', marginBottom: 20 }} />
+                 style={styles.thumbnail} />
           <View style={styles.container}>
             <Textarea
               containerStyle={styles.textareaContainer}
@@ -50,7 +55,7 @@ const NewReview = ({ navigation, route }) => {
 
   return (
     <Layout navigation={navigation} search={!title} title={title}>
-      <View style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <View style={styles.cover}>
         <Render />
       </View>
     </Layout>
@@ -58,24 +63,3 @@ const NewReview = ({ navigation, route }) => {
 };
 
 export default NewReview;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textareaContainer: {
-    height: 180,
-    padding: 5,
-    backgroundColor: '#FFF',
-    borderRadius: 8,
-  },
-  textarea: {
-    textAlignVertical: 'top',  // hack android
-    width: Dimensions.get('window').width * 0.95,
-    fontSize: 14,
-    color: '#333',
-  },
-});

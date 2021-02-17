@@ -16,5 +16,8 @@
     "new": "Yeni Ekle",
     "reviews": "İncelemelerim",
     "profile": "Profil"
+  },
+  "newReview": {
+    "not_yet": "İnceleme eklemek için yukarıdaki arama alanını kullanınız."
   }
 }

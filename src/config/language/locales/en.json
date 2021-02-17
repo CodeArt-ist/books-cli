@@ -16,5 +16,8 @@
     "new": "New Add",
     "reviews": "My Reviews",
     "profile": "Profile"
+  },
+  "newReview": {
+    "not_yet": "Please use the search input for add the new review."
   }
 }
