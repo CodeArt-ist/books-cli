@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 import Textarea from 'react-native-textarea';
 import Layout from '../../../components/Layout/Layout';
 import { invalidColor } from '../../../styles/colors';
 import i18n from '../../config/language/i18n';
-import styles from '../../../styles/dashboard/new-review.css'
+import styles from '../../../styles/dashboard/new-review.css';
 
 const NewReview = ({ navigation, route }) => {
 
