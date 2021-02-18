@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Image, Text, View } from 'react-native';
 import Textarea from 'react-native-textarea';
 import Layout from '../../../components/Layout/Layout';
@@ -6,7 +6,7 @@ import { invalidColor } from '../../../styles/colors';
 import i18n from '../../config/language/i18n';
 import styles from '../../../styles/dashboard/new-review.css';
 
-const NewReview = ({ navigation, route }) => {
+const NewReview =({ navigation, route }) => {
 
   const [title, setTitle] = useState();
   const [uri, setUri] = useState();
@@ -15,7 +15,7 @@ const NewReview = ({ navigation, route }) => {
   // translate
   const { t } = i18n;
 
-  const Render = () => {
+  const Render = useCallback(() => {
 
     if (!title && !uri) {
       return (
@@ -43,7 +43,7 @@ const NewReview = ({ navigation, route }) => {
         </>
       );
     }
-  };
+  },[title,uri]);
 
   useEffect(() => {
     if (route.params?.book) {
@@ -51,7 +51,7 @@ const NewReview = ({ navigation, route }) => {
       setTitle(book.title);
       setUri(book.imageLinks.thumbnail);
     }
-  }, [route]);
+  }, []);
 
   return (
     <Layout navigation={navigation} search={!title} title={title}>
