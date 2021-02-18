@@ -5,15 +5,25 @@ import Layout from '../../../components/Layout/Layout';
 import { invalidColor } from '../../../styles/colors';
 import i18n from '../../config/language/i18n';
 import styles from '../../../styles/dashboard/new-review.css';
+import Button from '../../../components/Form/Button/Button';
 
-const NewReview =({ navigation, route }) => {
+const NewReview = ({ navigation, route }) => {
 
   const [title, setTitle] = useState();
   const [uri, setUri] = useState();
   const [review, setReview] = useState();
+  const [loading, setLoading] = useState(false);
 
   // translate
   const { t } = i18n;
+
+  const saveReview = async () => {
+    console.log('here')
+    await setLoading(true)
+    await setTimeout(() => {
+      setLoading(false)
+    },3000)
+  }
 
   const Render = useCallback(() => {
 
@@ -40,10 +50,13 @@ const NewReview =({ navigation, route }) => {
               underlineColorAndroid={'transparent'}
             />
           </View>
+          <Button title={'Add Review'}
+                  onPress={() => saveReview()}
+                  loading={loading} />
         </>
       );
     }
-  },[title,uri]);
+  });
 
   useEffect(() => {
     if (route.params?.book) {
