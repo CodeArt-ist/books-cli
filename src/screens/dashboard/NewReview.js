@@ -55,7 +55,7 @@ const NewReview = ({ navigation, route }) => {
         </>
       );
     }
-  });
+  }, [title, uri]);
 
   useEffect(() => {
     if (route.params?.book) {
