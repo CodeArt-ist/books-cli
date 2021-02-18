@@ -18,12 +18,11 @@ const NewReview = ({ navigation, route }) => {
   const { t } = i18n;
 
   const saveReview = async () => {
-    console.log('here')
-    await setLoading(true)
+    await setLoading(true);
     await setTimeout(() => {
-      setLoading(false)
-    },3000)
-  }
+      setLoading(false);
+    }, 3000);
+  };
 
   const Render = useCallback(() => {
 
