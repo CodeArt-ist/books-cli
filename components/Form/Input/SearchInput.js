@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 import styles from './input.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { searchAsync } from '../../../src/store/reducers/bookReducer';
+import { search, searchAsync } from '../../../src/store/reducers/bookReducer';
 
 const SearchInput = ({ navigation, value, placeholder, onChange, style }) => {
 
@@ -40,12 +40,26 @@ const SearchInput = ({ navigation, value, placeholder, onChange, style }) => {
     );
   };
 
+  const clear = () => {
+    onChange(null)
+    dispatch(search([]))
+  }
+
   return (
     <View style={styles.searchContainer}>
-      <TextInput style={{ ...styles.input, ...styles.searchInput, ...style }}
-                 placeholder={placeholder}
-                 onChangeText={e => onSearchInputChange(e)}
-                 value={value} />
+      <View style={{ flex: 1 }}>
+        <View style={styles.clearButton}>
+          <TouchableOpacity onPress={()=>clear()}>
+            <Text style={styles.clearButtonLabel}>X</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ zIndex: 1 }}>
+          <TextInput style={{ ...styles.input, ...styles.searchInput, ...style }}
+                     placeholder={placeholder}
+                     onChangeText={e => onSearchInputChange(e)}
+                     value={value} />
+        </View>
+      </View>
       <View>
         <RenderResults />
       </View>
