@@ -1,8 +1,6 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { invalidColor, validColor } from '../../../styles/colors';
 
 const Width = Dimensions.get('window').width;
-const Height = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 
@@ -68,12 +66,12 @@ const styles = StyleSheet.create({
   clearButtonLabel: {
     fontSize: 17,
     padding: 3,
-    backgroundColor: "#eee",
+    backgroundColor: '#eee',
     paddingRight: 8,
     paddingLeft: 8,
     borderRadius: 8,
-    color: "#ddd"
-  }
+    color: '#ddd',
+  },
 });
 
 export default styles;
