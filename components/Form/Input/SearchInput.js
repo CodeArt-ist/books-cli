@@ -41,15 +41,15 @@ const SearchInput = ({ navigation, value, placeholder, onChange, style }) => {
   };
 
   const clear = () => {
-    onChange(null)
-    dispatch(search([]))
-  }
+    onChange(null);
+    dispatch(search([]));
+  };
 
   return (
     <View style={styles.searchContainer}>
       <View style={{ flex: 1 }}>
         <View style={styles.clearButton}>
-          <TouchableOpacity onPress={()=>clear()}>
+          <TouchableOpacity onPress={() => clear()}>
             <Text style={styles.clearButtonLabel}>X</Text>
           </TouchableOpacity>
         </View>
